@@ -29,7 +29,7 @@ AppAsset::register($this);
 <div class="wrap">
     <?php
     NavBar::begin([
-        'brandLabel' => 'My Company',
+        'brandLabel' => 'GoRaisins',
         'brandUrl' => Yii::$app->homeUrl,
         'options' => [
             'class' => 'navbar-inverse navbar-fixed-top',
@@ -52,6 +52,21 @@ AppAsset::register($this);
             )
             . Html::endForm()
             . '</li>';
+        $menuItems[] = [              
+    'label' => 'Account',
+    'items' => [
+        [
+          'label' => 'Friends', 'url' => ['/friend']
+        ],
+         [
+            'label' => 'Contact information', 'url' => ['/user-contact']
+        ],
+        [
+            'label' => 'Settings', 'url' => ['/user-setting']
+        ],
+    ],
+]; 
+        
     }
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
