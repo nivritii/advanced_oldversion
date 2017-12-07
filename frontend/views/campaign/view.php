@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Campaign */
 
-$this->title = $model->c_id;
+$this->title = $model->c_title;
 $this->params['breadcrumbs'][] = ['label' => 'Campaigns', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -29,7 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'model' => $model,
         'attributes' => [
             'c_title',
-            'c_image:ntext',
+            [
+                'attribute'=>'c_image',
+                'value' => Yii::getAlias('@ImgUploadPath') .'\web\uploads'.$model->c_title.$model->file->extension,
+            ],
+            //'c_image:ntext',
             'c_description:ntext',
             'c_start_date',
             'c_end_date',

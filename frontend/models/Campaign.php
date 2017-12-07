@@ -22,6 +22,8 @@ class Campaign extends \yii\db\ActiveRecord
     /**
      * @inheritdoc
      */
+    public $file;
+
     public static function tableName()
     {
         return 'campaign';
@@ -33,11 +35,12 @@ class Campaign extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['c_title', 'c_image', 'c_description', 'c_start_date', 'c_end_date', 'c_goal', 'c_author'], 'required'],
-            [['c_image', 'c_description'], 'string'],
+            [['c_title', 'c_description', 'c_start_date', 'c_end_date', 'c_goal', 'c_author'], 'required'],
+            [['c_description'], 'string'],
             [['c_start_date', 'c_end_date'], 'safe'],
             [['c_goal'], 'integer'],
-            [['c_title'], 'string', 'max' => 100],
+            [['file'],'file'],
+            [['c_title','c_image'], 'string', 'max' => 100],
             [['c_author'], 'string', 'max' => 255],
         ];
     }
@@ -49,7 +52,7 @@ class Campaign extends \yii\db\ActiveRecord
     {
         return [
             'c_title' => 'Title',
-            'c_image' => 'Image',
+            'file' => 'Image',
             'c_description' => 'Description',
             'c_start_date' => 'Start Date',
             'c_end_date' => 'End Date',

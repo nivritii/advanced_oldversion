@@ -11,11 +11,39 @@ use dosamigos\datepicker\DatePicker;
 
 <div class="campaign-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'c_title')->textInput(['maxlength' => true]) ?>
-
-    <?= $form->field($model, 'c_image')->textarea(['rows' => 6]) ?>
+    
+    <title> Preview Image</title>
+    <style>
+        #preview{
+            width: 200px;
+            border: 1px solid #e5e5e5;
+            height: 120px;
+        }
+        #preview img{
+            width: 100%;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.1.0.min.js"
+            crossorigin="annoymous"></script>
+    <script type="text/javascript">
+        function readURL(input){
+            if(input.files && input.files[0]){
+                var reader = new FileReader();
+                reader.onload = function(e){
+                    $('#preview img').attr('src',e.target.result);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+        
+        $(document).on('change','input[type="file"]',function(){
+            readURL(this);
+        });
+    </script>
+    <?= $form->field($model, 'file')->fileInput();  ?>
 
     <?= $form->field($model, 'c_description')->textarea(['rows' => 6]) ?>
 

@@ -21,6 +21,9 @@ $this->params['breadcrumbs'][] = $this->title;
     <p>
         <?= Html::a('Create Campaign', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
+    <p>
+        <?= Html::a('Start a Campaign', ['new'], ['class' => 'btn btn-success']) ?>
+    </p>
     <?php    Pjax::begin(); ?>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,

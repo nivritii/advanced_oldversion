@@ -21,6 +21,20 @@ return [
             'enableAutoLogin' => true,
             'identityCookie' => ['name' => '_identity-backend', 'httpOnly' => true],
         ],
+        'assetManager' => [
+            'bundles' => [
+                'dmstr\yii2-adminlte-asset\web\AdminLteAsset' => [
+                    'skin' => 'skin-purple',
+                ],
+            ],
+        ],
+        'view' => [
+         'theme' => [
+             'pathMap' => [
+                '@backend\views' => '@vendor\dmstr\yii2-adminlte-asset\example-views\yiisoft\yii2-app'
+                           ],
+                    ],
+        ],
         'session' => [
             // this is the name of the session cookie used for login on the backend
             'name' => 'advanced-backend',
