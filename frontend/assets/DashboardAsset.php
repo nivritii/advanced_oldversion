@@ -13,11 +13,15 @@ class AppAsset extends AssetBundle
     public $baseUrl = '@web';
     //public $sourcePath = '@bower/stable/';
     public $css = [
-        'css/style.css',
         'css/bootstrap.min.css',
-        'css/animate.min.css',
         'css/font-awesome.min.css',
-        'css/sub-nav.css'
+        'css/ionicons.min.css',
+        'css/AdminLTE.min.css',
+        'css/_all-skins.min.css',
+        'css/morris.css',
+        'css/jquery-jvectormap.css',
+        'css/bootstrap-datepicker.min.css',
+        'css/daterangepicker.css',
     ];
     public $js = [
         'js/jquery.js',

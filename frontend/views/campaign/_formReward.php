@@ -11,6 +11,7 @@ use dosamigos\datepicker\DatePicker;
 
 <div class="campaignReward-form">
 
+    <div class="form-group">
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'r_title')->textInput(['maxlength' => true]) ?>
@@ -38,5 +39,5 @@ use dosamigos\datepicker\DatePicker;
     </div>
 
     <?php ActiveForm::end(); ?>
-
+    </div>
 </div>

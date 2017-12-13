@@ -3,14 +3,16 @@
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 use dosamigos\datepicker\DatePicker;
+use frontend\models\Campaign;
 
 /* @var $this yii\web\View */
 /* @var $model frontend\models\Campaign */
 /* @var $form yii\widgets\ActiveForm */
+$model = new Campaign();
 ?>
 
-<div class="campaign-form">
-
+<div class="text-left">
+    <div class="form-group">
     <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]); ?>
 
     <?= $form->field($model, 'c_title')->textInput(['maxlength' => true]) ?>
@@ -43,10 +45,11 @@ use dosamigos\datepicker\DatePicker;
             readURL(this);
         });
     </script>
+    
     <?= $form->field($model, 'file')->fileInput();  ?>
-
+    
     <?= $form->field($model, 'c_description')->textarea(['rows' => 6]) ?>
-
+    
     <?= $form->field($model, 'c_start_date')->widget(
     DatePicker::className(), [
         // inline too, not bad
@@ -72,13 +75,13 @@ use dosamigos\datepicker\DatePicker;
 ]);?>
 
     <?= $form->field($model, 'c_goal')->textInput() ?>
-
+    
     <?= $form->field($model, 'c_author')->textInput(['maxlength' => true]) ?>
-
+    
     <div class="form-group">
         <?= Html::submitButton($model->isNewRecord ? 'Create' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
     </div>
 
     <?php ActiveForm::end(); ?>
-
+    </div>
 </div>
